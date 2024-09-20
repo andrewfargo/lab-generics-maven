@@ -49,6 +49,7 @@ public class SimpleDynamicArray<T> implements DynamicArray<T> {
   public void set(int i, T val) {
     // If the array is not big enough, expand it
     if (this.values.length <= i) {
+      //System.out.println("Expanded dynamic array.");
       int newsize = this.values.length * 2;
       while (newsize <= i) {
         newsize *= 2;
