@@ -58,6 +58,8 @@ public class SearchExperiments {
     Object[] numberObjects = (Object[])numbers;
     pen.println("A small number OBJECT: "
 		+ SearchUtils.search(numberObjects, SmallObject.PRED));
+
+    
   } // main(String[])
 
 } // class SearchExperiments
