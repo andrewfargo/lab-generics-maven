@@ -91,5 +91,7 @@ public class SimpleDynamicArrayExperiments {
     pen.println(numbers3.get(1));
     numbers3.set(2, numbers3.get(0) + numbers3.get(1)); // doesn't compile
     */
+
+    
   } // main(String[])
 } // class SimpleDynamicArrayExperiment

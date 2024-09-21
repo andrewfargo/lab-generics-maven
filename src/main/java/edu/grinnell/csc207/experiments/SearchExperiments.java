@@ -3,6 +3,7 @@ package edu.grinnell.csc207.experiments;
 import edu.grinnell.csc207.util.SearchUtils;
 import edu.grinnell.csc207.util.predicates.OddInteger;
 import edu.grinnell.csc207.util.predicates.SmallString;
+import edu.grinnell.csc207.util.predicates.SmallObject;
 
 import java.io.PrintWriter;
 
@@ -36,6 +37,27 @@ public class SearchExperiments {
         + SearchUtils.search(strings, SmallString.PRED));
     pen.println("An odd integer: "
         + SearchUtils.search(numbers, OddInteger.PRED));
+    // The compiler correctly identifies that numbers and SmallString.PRED
+    // are not the same type
+    //SearchUtils.search(numbers, SmallString.PRED); // Doesn't compile
+
+    // Set up a few arrays to search.
+    Object[] stringObjects =
+        new Object[] {"alpha", "bravo", "charlie", "delta", "echo", "foxtrot",
+            "golf", "hotel", "india", "juliett", "kilo", "lima", "mike",
+            "november", "oscar"};
+
+    pen.println("A small string object: "
+		+ SearchUtils.search(stringObjects, SmallObject.PRED));
+
+    // Surprisingly compiles without fuss of conversion
+    // I suppose this must be because strings derives from Object
+    pen.println("A small string OBJECT: "
+		+ SearchUtils.search(strings, SmallObject.PRED));
+
+    Object[] numberObjects = (Object[])numbers;
+    pen.println("A small number OBJECT: "
+		+ SearchUtils.search(numberObjects, SmallObject.PRED));
   } // main(String[])
 
 } // class SearchExperiments
